@@ -3,7 +3,8 @@ import SwiftUI
 
 /// A menu bar app has no Dock icon, so a window opened from it stays behind
 /// whatever app is active. While one of ours is open the app becomes a regular
-/// app, and drops back to accessory when the last one closes.
+/// app, and drops back to accessory when the last one closes, unless the user
+/// wants the Dock icon all the time.
 @MainActor
 enum ActivationPolicy {
   private static var count = 0
@@ -16,8 +17,24 @@ enum ActivationPolicy {
 
   static func leave() {
     count = max(0, count - 1)
-    guard count == 0 else { return }
-    Task { @MainActor in NSApp.setActivationPolicy(.accessory) }
+    Task { @MainActor in apply() }
+  }
+
+  static func apply() {
+    let regular = count > 0 || UserDefaults.standard.bool(forKey: "showInDock")
+    NSApp.setActivationPolicy(regular ? .regular : .accessory)
+  }
+}
+
+/// Clicking the Dock icon opens Settings; there is no main window to show.
+final class AppDelegate: NSObject, NSApplicationDelegate {
+  func applicationDidFinishLaunching(_ notification: Notification) {
+    MainActor.assumeIsolated { ActivationPolicy.apply() }
+  }
+
+  func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows: Bool) -> Bool {
+    if !hasVisibleWindows { MainActor.assumeIsolated { WindowPresenter.showSettings() } }
+    return true
   }
 }
 

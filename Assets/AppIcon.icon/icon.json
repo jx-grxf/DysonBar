@@ -9,34 +9,34 @@
           "blend-mode": "normal",
           "glass": true,
           "position": {
-            "scale": 0.92,
+            "scale": 1.1,
             "translation-in-points": [
               0,
-              34
+              -6
             ]
           }
         }
       ],
       "name": "knob",
+      "specular": true,
       "shadow": {
         "kind": "neutral",
-        "opacity": 0.5
-      },
-      "specular": true
+        "opacity": 0.6
+      }
     },
     {
       "layers": [
         {
           "image-name": "air.svg",
           "name": "air",
-          "opacity": 0.92,
+          "opacity": 1,
           "blend-mode": "normal",
           "glass": true,
           "position": {
-            "scale": 0.92,
+            "scale": 1.1,
             "translation-in-points": [
               0,
-              34
+              -6
             ]
           }
         }
@@ -45,7 +45,11 @@
       "specular": true,
       "shadow": {
         "kind": "neutral",
-        "opacity": 0.3
+        "opacity": 0.35
+      },
+      "translucency": {
+        "enabled": true,
+        "value": 0.15
       }
     },
     {
@@ -55,10 +59,10 @@
           "name": "glyph",
           "glass": true,
           "position": {
-            "scale": 0.92,
+            "scale": 1.1,
             "translation-in-points": [
               0,
-              34
+              -6
             ]
           }
         }
@@ -67,7 +71,7 @@
       "specular": true,
       "shadow": {
         "kind": "layer-color",
-        "opacity": 0.5
+        "opacity": 0.6
       },
       "blur-material": null
     }
@@ -80,8 +84,8 @@
   },
   "fill": {
     "linear-gradient": [
-      "srgb:0.03922,0.05490,0.07451,1.00000",
-      "srgb:0.11765,0.15686,0.20000,1.00000"
+      "srgb:0.03137,0.04314,0.06275,1.00000",
+      "srgb:0.12549,0.17255,0.23529,1.00000"
     ],
     "orientation": {
       "start": {
@@ -99,8 +103,8 @@
       "appearance": "dark",
       "value": {
         "linear-gradient": [
-          "srgb:0.02745,0.03529,0.04706,1.00000",
-          "srgb:0.08627,0.11373,0.14510,1.00000"
+          "srgb:0.01569,0.02353,0.03529,1.00000",
+          "srgb:0.07843,0.10588,0.14510,1.00000"
         ],
         "orientation": {
           "start": {

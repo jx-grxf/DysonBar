@@ -17,7 +17,62 @@ struct PanelView: View {
     }
     .padding(Tokens.padding)
     .frame(width: Tokens.panelWidth)
+    .fixedSize(horizontal: false, vertical: true)
+    .onGeometryChange(for: CGFloat.self) { $0.size.height } action: { height in
+      window.fit(contentHeight: height)
+    }
+    .background(WindowReader(window: window))
+    .frame(maxHeight: .infinity, alignment: .top)
     .animation(reduceMotion ? nil : Tokens.switchMotion, value: model.store.selected?.id)
+  }
+
+  @State private var window = PanelWindow()
+}
+
+/// `MenuBarExtra` grows its window when the content gets taller but never
+/// shrinks it again, so closing the history chart left empty space around the
+/// panel. The window is sized to the content here instead, top edge pinned
+/// under the menu bar.
+@MainActor
+final class PanelWindow {
+  weak var window: NSWindow?
+  private var pendingHeight: CGFloat?
+
+  func fit(contentHeight: CGFloat) {
+    guard let window else {
+      pendingHeight = contentHeight
+      return
+    }
+    let content = window.contentRect(forFrameRect: window.frame)
+    guard abs(content.height - contentHeight) > 0.5 else { return }
+    var frame = window.frameRect(forContentRect: NSRect(x: content.minX, y: content.minY, width: content.width, height: contentHeight))
+    frame.origin.y = window.frame.maxY - frame.height
+    window.setFrame(frame, display: true, animate: false)
+  }
+
+  fileprivate func attach(_ window: NSWindow) {
+    guard self.window !== window else { return }
+    self.window = window
+    if let pendingHeight {
+      self.pendingHeight = nil
+      fit(contentHeight: pendingHeight)
+    }
+  }
+}
+
+private struct WindowReader: NSViewRepresentable {
+  let window: PanelWindow
+
+  func makeNSView(context: Context) -> NSView {
+    let view = NSView()
+    DispatchQueue.main.async { [weak view] in
+      if let found = view?.window { window.attach(found) }
+    }
+    return view
+  }
+
+  func updateNSView(_ view: NSView, context: Context) {
+    if let found = view.window { window.attach(found) }
   }
 }
 

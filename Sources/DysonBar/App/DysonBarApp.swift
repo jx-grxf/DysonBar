@@ -4,6 +4,7 @@ import SwiftUI
 
 @main
 struct DysonBarApp: App {
+  @NSApplicationDelegateAdaptor private var delegate: AppDelegate
   @State private var model = AppModel.shared
 
   var body: some Scene {
@@ -97,25 +98,62 @@ enum StatusIcon {
 
 /// `--snapshot <path> [light|dark]` writes the panel with live data to a PNG and
 /// quits, so layout changes and README screenshots don't need a click on the menu bar.
+/// `--frames <dir> [light|dark]` writes three seconds of PNG frames for the README GIF.
 @MainActor
 enum Snapshot {
   static func renderIfRequested(model: AppModel) async {
     let arguments = ProcessInfo.processInfo.arguments
-    guard let index = arguments.firstIndex(of: "--snapshot"), index + 1 < arguments.count else { return }
+    let still = arguments.firstIndex(of: "--snapshot")
+    let frames = arguments.firstIndex(of: "--frames")
+    guard let index = still ?? frames, index + 1 < arguments.count else { return }
+    let target = URL(fileURLWithPath: arguments[index + 1])
     let scheme: ColorScheme = arguments.dropFirst(index + 2).first == "light" ? .light : .dark
     try? await Task.sleep(for: .seconds(5))
+
+    if still != nil {
+      write(render(model: model, scheme: scheme, progress: 1), to: target)
+    } else {
+      try? FileManager.default.createDirectory(at: target, withIntermediateDirectories: true)
+      let count = 60
+      for frame in 0..<count {
+        // The ring sweeps in over the first second, then the air keeps moving.
+        let t = min(Double(frame) / 20, 1)
+        let eased = 1 - pow(1 - t, 3)
+        let image = render(model: model, scheme: scheme, progress: eased)
+        write(image, to: target.appending(path: String(format: "frame-%03d.png", frame)))
+        try? await Task.sleep(for: .milliseconds(50))
+      }
+    }
+    NSApp.terminate(nil)
+  }
+
+  private static func render(model: AppModel, scheme: ColorScheme, progress: Double) -> NSImage? {
     let panel = PanelView()
       .environment(model)
       .background(scheme == .dark ? Color(white: 0.13) : Color(white: 0.96))
+      .clipShape(.rect(cornerRadius: 18, style: .continuous))
+      .overlay(RoundedRectangle(cornerRadius: 18, style: .continuous).strokeBorder(.white.opacity(scheme == .dark ? 0.1 : 0)))
+      .shadow(color: .black.opacity(0.35), radius: 24, y: 12)
+      .padding(36)
+      .background(
+        LinearGradient(
+          colors: scheme == .dark
+            ? [Color(red: 0.11, green: 0.14, blue: 0.19), Color(red: 0.05, green: 0.06, blue: 0.08)]
+            : [Color(red: 0.86, green: 0.90, blue: 0.95), Color(red: 0.95, green: 0.96, blue: 0.98)],
+          startPoint: .topLeading, endPoint: .bottomTrailing)
+      )
       .environment(\.colorScheme, scheme)
       .environment(\.isSnapshot, true)
+      .environment(\.snapshotProgress, progress)
     let renderer = ImageRenderer(content: panel)
     renderer.scale = 2
-    if let image = renderer.nsImage, let tiff = image.tiffRepresentation,
+    return renderer.nsImage
+  }
+
+  private static func write(_ image: NSImage?, to url: URL) {
+    guard let tiff = image?.tiffRepresentation,
       let png = NSBitmapImageRep(data: tiff)?.representation(using: .png, properties: [:])
-    {
-      try? png.write(to: URL(fileURLWithPath: arguments[index + 1]))
-    }
-    NSApp.terminate(nil)
+    else { return }
+    try? png.write(to: url)
   }
 }

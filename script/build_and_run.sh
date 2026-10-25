@@ -68,6 +68,9 @@ xcrun actool "$ROOT_DIR/Assets/AppIcon.icon" \
   --minimum-deployment-target "$MIN_SYSTEM_VERSION" \
   --app-icon AppIcon \
   --output-partial-info-plist "$ICON_PARTIAL" >/dev/null
+# actool's .icns stops at 256 px; script/make_icns.swift builds a full one from
+# the 1024 px render, used by Finder before macOS 26.
+cp "$ROOT_DIR/Assets/AppIcon.icns" "$RESOURCES/AppIcon.icns"
 
 cat >"$CONTENTS/Info.plist" <<PLIST
 <?xml version="1.0" encoding="UTF-8"?>

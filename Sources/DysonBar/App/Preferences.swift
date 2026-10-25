@@ -58,6 +58,14 @@ final class Preferences {
     didSet { defaults.set(notifyFaults, forKey: "notifyFaults") }
   }
 
+  /// Off by default: a menu bar app normally has no Dock icon.
+  var showInDock: Bool {
+    didSet {
+      defaults.set(showInDock, forKey: "showInDock")
+      ActivationPolicy.apply()
+    }
+  }
+
   var hasCompletedOnboarding: Bool {
     didSet { defaults.set(hasCompletedOnboarding, forKey: "hasCompletedOnboarding") }
   }
@@ -75,6 +83,7 @@ final class Preferences {
     notifyFilter = defaults.bool(forKey: "notifyFilter")
     notifyFaults = defaults.bool(forKey: "notifyFaults")
     hasCompletedOnboarding = defaults.bool(forKey: "hasCompletedOnboarding")
+    showInDock = defaults.bool(forKey: "showInDock")
   }
 
   // MARK: Launch at login

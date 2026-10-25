@@ -55,6 +55,8 @@ extension View {
 extension EnvironmentValues {
   /// `ImageRenderer` can't draw Liquid Glass, so snapshots use the plain fallback.
   @Entry var isSnapshot = false
+  /// Drives the ring sweep frame by frame, since `ImageRenderer` doesn't animate.
+  @Entry var snapshotProgress = 1.0
 }
 
 private struct ControlSurface: ViewModifier {

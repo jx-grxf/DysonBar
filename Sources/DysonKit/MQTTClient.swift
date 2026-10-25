@@ -52,8 +52,13 @@ public final class MQTTClient: @unchecked Sendable {
         case .ready:
           self.send(self.connectPacket())
           self.receive()
-        case .failed(let error), .waiting(let error):
+        case .failed(let error):
           self.close(reason: error.localizedDescription)
+        case .waiting(let error):
+          // A name that doesn't resolve won't start resolving, so move on. Anything
+          // else is usually the local network permission check on the first
+          // connection after launch; NWConnection retries by itself once it passes.
+          if case .dns = error { self.close(reason: error.localizedDescription) }
         default:
           break
         }

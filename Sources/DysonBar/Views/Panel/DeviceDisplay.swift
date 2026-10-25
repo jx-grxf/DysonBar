@@ -6,6 +6,7 @@ import SwiftUI
 struct DeviceDisplay: View {
   let device: DysonDevice
   @Binding var chartMetric: Metric?
+  @Environment(\.snapshotProgress) private var snapshotProgress
 
   private var snapshot: DeviceSnapshot { device.snapshot }
   private var reading: Reading? { snapshot.worstReading }
@@ -28,7 +29,7 @@ struct DeviceDisplay: View {
             startPoint: .leading, endPoint: .trailing))
 
       HStack(alignment: .center, spacing: 16) {
-        LevelRing(score: reading?.score ?? 0, hasValue: reading != nil, level: level) {
+        LevelRing(score: (reading?.score ?? 0) * snapshotProgress, hasValue: reading != nil, level: level) {
           VStack(spacing: 2) {
             Text(reading?.level.title ?? "–")
               .font(.system(size: titleSize, weight: .semibold, design: .rounded))

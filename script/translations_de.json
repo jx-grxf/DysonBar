@@ -90,7 +90,6 @@
 "Last checked": "Zuletzt gesucht",
 "Local": "Lokal",
 "Local, no cloud": "Lokal, ohne Cloud",
-"Made by jx-grxf · MIT License": "Von jx-grxf · MIT-Lizenz",
 "Manage Devices…": "Geräte verwalten …",
 "Menu Bar": "Menüleiste",
 "Min %@ · Max %@ %@": "Min. %1$@ · Max. %2$@ %3$@",
@@ -199,5 +198,8 @@
 "Your Dyson purifier in the menu bar, over your own Wi-Fi.": "Dein Dyson-Luftreiniger in der Menüleiste, über dein eigenes WLAN.",
 "Your purifier in the menu bar": "Dein Luftreiniger in der Menüleiste",
 "index": "Index",
-"“System” follows the language in System Settings. Changing it restarts DysonBar.": "„System“ folgt der Sprache aus den Systemeinstellungen. Eine Änderung startet DysonBar neu."
+"“System” follows the language in System Settings. Changing it restarts DysonBar.": "„System“ folgt der Sprache aus den Systemeinstellungen. Eine Änderung startet DysonBar neu.",
+"Show in Dock": "Im Dock zeigen",
+"Adds a Dock icon that opens these settings. DysonBar always stays in the menu bar.": "Zeigt ein Symbol im Dock, das diese Einstellungen öffnet. In der Menüleiste bleibt DysonBar immer.",
+"Made by Johannes Grof · MIT License": "Von Johannes Grof · MIT-Lizenz"
 }

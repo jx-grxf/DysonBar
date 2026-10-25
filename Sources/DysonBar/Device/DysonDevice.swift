@@ -86,16 +86,17 @@ final class DysonDevice: Identifiable {
 
   private var lastHostKey: String { "lastHost.\(record.serial)" }
 
-  /// Cheapest first: the address that worked last time, then Bonjour, then the
-  /// serial as a hostname, which most home routers resolve from DHCP.
+  /// Cheapest first: the address that worked last time, then the serial as a
+  /// hostname, which most home routers resolve from DHCP and which fails fast
+  /// when they don't, then Bonjour, whose service endpoint can take seconds.
   private func routes() -> [Route] {
     if let host = record.host, !host.isEmpty { return [.host(host)] }
     var routes: [Route] = []
     if let last = UserDefaults.standard.string(forKey: lastHostKey) {
       routes.append(.host(last))
     }
-    routes.append(.bonjour)
     routes.append(.host(record.serial.lowercased()))
+    routes.append(.bonjour)
     return routes
   }
 
@@ -121,12 +122,14 @@ final class DysonDevice: Identifiable {
   }
 
   private func browse() {
-    let serial = record.serial
+    // Devices announce themselves as "<product type>_<serial>", e.g. "438_AB1-EU-XYZ".
+    // An exact match keeps other services from catching the MQTT password.
+    let expectedName = "\(record.type.prefix(3))_\(record.serial)"
     connection = .searching
     let browser = NWBrowser(for: .bonjour(type: "_dyson_mqtt._tcp", domain: "local."), using: .tcp)
     browser.browseResultsChangedHandler = { [weak self] results, _ in
       let match = results.first {
-        if case .service(let name, _, _, _) = $0.endpoint { return name.hasSuffix(serial) }
+        if case .service(let name, _, _, _) = $0.endpoint { return name == expectedName }
         return false
       }
       guard let match else { return }

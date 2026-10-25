@@ -135,6 +135,9 @@ private struct GeneralPane: View {
         Toggle(isOn: $preferences.launchAtLogin) {
           SettingLabel(String(localized: "Open at login"), String(localized: "DysonBar starts with your Mac and stays in the menu bar."))
         }
+        Toggle(isOn: $preferences.showInDock) {
+          SettingLabel(String(localized: "Show in Dock"), String(localized: "Adds a Dock icon that opens these settings. DysonBar always stays in the menu bar."))
+        }
       }
 
       Section(String(localized: "Menu Bar")) {
@@ -442,7 +445,7 @@ private struct AboutPane: View {
         Text("DysonBar is an independent open-source project. It is not affiliated with, endorsed or sponsored by Dyson. Dyson is a trademark of Dyson Technology Limited.")
           .font(.caption)
           .foregroundStyle(.secondary)
-        Text("Made by jx-grxf · MIT License")
+        Text("Made by Johannes Grof · MIT License")
           .font(.caption)
           .foregroundStyle(.secondary)
       }

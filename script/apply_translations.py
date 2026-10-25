@@ -8,6 +8,9 @@ catalog_path = root / "Sources/DysonBar/Resources/Localizable.xcstrings"
 catalog = json.loads(catalog_path.read_text())
 german = json.loads((root / "script/translations_de.json").read_text())
 
+# Keys the code no longer uses are dropped instead of carried along.
+catalog["strings"] = {k: v for k, v in catalog["strings"].items() if v.get("extractionState") != "stale"}
+
 missing = []
 for key, entry in catalog["strings"].items():
     if key in german:
