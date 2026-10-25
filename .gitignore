@@ -1,0 +1,16 @@
+# Swift Package Manager
+.build/
+.swiftpm/
+
+# Builds
+dist/
+*.app
+*.dmg
+*.dSYM
+
+# Projektwissen und Agenten-Notizen bleiben lokal
+Brain/
+CLAUDE.md
+
+# macOS
+.DS_Store
