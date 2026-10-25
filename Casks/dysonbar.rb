@@ -13,14 +13,14 @@ cask "dysonbar" do
   end
 
   auto_updates true
-  depends_on macos: ">= :sequoia"
+  depends_on macos: :sequoia
 
   app "DysonBar.app"
 
   zap trash: [
     "~/Library/Application Support/DysonBar",
-    "~/Library/Preferences/at.johannesgrof.DysonBar.plist",
     "~/Library/Caches/at.johannesgrof.DysonBar",
     "~/Library/HTTPStorages/at.johannesgrof.DysonBar",
+    "~/Library/Preferences/at.johannesgrof.DysonBar.plist",
   ]
 end
