@@ -1,6 +1,6 @@
 cask "dysonbar" do
   version "0.1.0"
-  sha256 "REPLACE_WITH_DMG_SHA256"
+  sha256 "1543aa1bdcb54b094a5eb3feb0299b9db22b0dba7b2e37282c0bc9524db2909c"
 
   url "https://github.com/jx-grxf/DysonBar/releases/download/v#{version}/DysonBar-#{version}.dmg"
   name "DysonBar"
