@@ -54,8 +54,12 @@ A native macOS menu bar app for Dyson air purifiers. Shows air quality and contr
 **Homebrew**
 
 ```sh
-brew install --cask jx-grxf/tap/dysonbar
+brew tap jx-grxf/tap
+brew trust --cask jx-grxf/tap/dysonbar
+brew install --cask dysonbar
 ```
+
+Homebrew only installs casks from third-party taps after `brew trust`.
 
 **Manual**
 
@@ -122,6 +126,6 @@ DysonBar is an independent open-source project. It is not affiliated with, endor
 
 DysonBar ist eine Mac-App für die Menüleiste, die Dyson-Luftreiniger direkt über dein WLAN steuert. Sie zeigt Feinstaub (PM2.5, PM10), VOC, NO₂, Formaldehyd, Temperatur und Luftfeuchte, speichert sieben Tage Verlauf und steuert Lüfterstufe, Automatik, Schwenken, Nachtmodus, Timer sowie Heizen und Befeuchten bei den passenden Modellen.
 
-**Installieren:** `brew install --cask jx-grxf/tap/dysonbar` oder die DMG aus den [Releases](https://github.com/jx-grxf/DysonBar/releases/latest) laden. Beim ersten Start meldest du dich einmal mit deinem MyDyson-Konto an, danach läuft alles lokal ohne Dyson-Cloud. Die Sprache stellst du in den Einstellungen unter Allgemein um.
+**Installieren:** `brew tap jx-grxf/tap`, `brew trust --cask jx-grxf/tap/dysonbar`, `brew install --cask dysonbar` oder die DMG aus den [Releases](https://github.com/jx-grxf/DysonBar/releases/latest) laden. Beim ersten Start meldest du dich einmal mit deinem MyDyson-Konto an, danach läuft alles lokal ohne Dyson-Cloud. Die Sprache stellst du in den Einstellungen unter Allgemein um.
 
 **Voraussetzungen:** macOS 15 oder neuer, ein Dyson-Luftreiniger im WLAN, Mac im selben Netz.
