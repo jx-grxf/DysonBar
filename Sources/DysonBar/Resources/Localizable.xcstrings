@@ -1,0 +1,2091 @@
+{
+  "sourceLanguage": "en",
+  "strings": {
+    "%@ %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$@ %2$@"
+          }
+        }
+      },
+      "shouldTranslate": false
+    },
+    "%@ %@, %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$@ %2$@, %3$@"
+          }
+        }
+      },
+      "shouldTranslate": false
+    },
+    "%@ filter": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@-Filter"
+          }
+        }
+      }
+    },
+    "%@ filter: %lld %% left": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@-Filter: noch %lld %%"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$@ filter: %2$lld %% left"
+          }
+        }
+      }
+    },
+    "%@ in %@ is almost used up": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ in %2$@ ist fast verbraucht"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$@ in %2$@ is almost used up"
+          }
+        }
+      }
+    },
+    "%@ is ready": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ ist bereit"
+          }
+        }
+      }
+    },
+    "%@ isn't answering": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ antwortet nicht"
+          }
+        }
+      }
+    },
+    "%@ reports a problem": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ meldet ein Problem"
+          }
+        }
+      }
+    },
+    "%@. The purifier is off — turn it on from the menu bar.": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@. Der Luftreiniger ist aus, du kannst ihn in der Menüleiste einschalten."
+          }
+        }
+      }
+    },
+    "%@. The purifier is running.": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@. Der Luftreiniger läuft."
+          }
+        }
+      }
+    },
+    "%@: %@ %@, %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$@: %2$@ %3$@, %4$@"
+          }
+        }
+      },
+      "shouldTranslate": false
+    },
+    "%lld %%": {
+      "shouldTranslate": false
+    },
+    "%lld %% left. Order a replacement soon.": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Noch %lld %%. Bestell bald einen neuen."
+          }
+        }
+      }
+    },
+    "%lld percent": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld Prozent"
+          }
+        }
+      }
+    },
+    "%lld purifiers are ready": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld Luftreiniger sind bereit"
+          }
+        }
+      }
+    },
+    "123456": {
+      "shouldTranslate": false
+    },
+    "24 hours": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "24 Stunden"
+          }
+        }
+      }
+    },
+    "7 days": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "7 Tage"
+          }
+        }
+      }
+    },
+    "About": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Über"
+          }
+        }
+      }
+    },
+    "Add Devices": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Geräte hinzufügen"
+          }
+        }
+      }
+    },
+    "Add Devices…": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Geräte hinzufügen …"
+          }
+        }
+      }
+    },
+    "After setup DysonBar talks to the purifier directly over Wi-Fi. Nothing leaves your network.": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nach der Einrichtung spricht DysonBar direkt über dein WLAN mit dem Luftreiniger. Nichts verlässt dein Netzwerk."
+          }
+        }
+      }
+    },
+    "Air quality": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Luftqualität"
+          }
+        }
+      }
+    },
+    "Air quality at a glance": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Luftqualität auf einen Blick"
+          }
+        }
+      }
+    },
+    "Air quality in %@: %@": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Luftqualität in %1$@: %2$@"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Air quality in %1$@: %2$@"
+          }
+        }
+      }
+    },
+    "Auto": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Auto"
+          }
+        }
+      }
+    },
+    "Automatic": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Automatisch"
+          }
+        }
+      }
+    },
+    "Back": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zurück"
+          }
+        }
+      }
+    },
+    "Bad air": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Schlechte Luft"
+          }
+        }
+      }
+    },
+    "Cancel": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abbrechen"
+          }
+        }
+      }
+    },
+    "Cancel Timer": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Timer beenden"
+          }
+        }
+      }
+    },
+    "Carbon": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kohle"
+          }
+        }
+      }
+    },
+    "Carbon filter": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kohlefilter"
+          }
+        }
+      }
+    },
+    "Check Now": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jetzt suchen"
+          }
+        }
+      }
+    },
+    "Check device": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gerät prüfen"
+          }
+        }
+      }
+    },
+    "Check for updates automatically": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Automatisch nach Updates suchen"
+          }
+        }
+      }
+    },
+    "Close": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Schließen"
+          }
+        }
+      }
+    },
+    "Close history": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Verlauf schließen"
+          }
+        }
+      }
+    },
+    "Code from the email": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Code aus der Mail"
+          }
+        }
+      }
+    },
+    "Code sent to %@": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Code an %@ geschickt"
+          }
+        }
+      }
+    },
+    "Connected directly over Wi-Fi (%@), without the Dyson cloud": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Direkt im WLAN verbunden (%@), ohne Dyson-Cloud"
+          }
+        }
+      }
+    },
+    "Connected via %@": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Verbunden über %@"
+          }
+        }
+      }
+    },
+    "Connecting to %@ …": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Verbinde mit %@ …"
+          }
+        }
+      }
+    },
+    "Connecting …": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Verbinde …"
+          }
+        }
+      }
+    },
+    "Connection": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Verbindung"
+          }
+        }
+      }
+    },
+    "Cooling": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kühlen"
+          }
+        }
+      }
+    },
+    "Country": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Land"
+          }
+        }
+      }
+    },
+    "Device faults": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gerätefehler"
+          }
+        }
+      }
+    },
+    "Devices": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Geräte"
+          }
+        }
+      }
+    },
+    "Diffuse": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Diffus"
+          }
+        }
+      }
+    },
+    "Done": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fertig"
+          }
+        }
+      }
+    },
+    "Dyson couldn't send a code to this address. Check the email and the country.": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dyson konnte an diese Adresse keinen Code schicken. Prüf die E-Mail und das Land."
+          }
+        }
+      }
+    },
+    "Dyson's server answered with error %lld.": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dysons Server hat mit Fehler %lld geantwortet."
+          }
+        }
+      }
+    },
+    "Dyson's server sent something DysonBar can't read.": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dysons Server hat etwas geschickt, das DysonBar nicht lesen kann."
+          }
+        }
+      }
+    },
+    "DysonBar": {
+      "shouldTranslate": false
+    },
+    "DysonBar %@": {
+      "shouldTranslate": false
+    },
+    "DysonBar Settings": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "DysonBar-Einstellungen"
+          }
+        }
+      }
+    },
+    "DysonBar deletes its Wi-Fi key and history. The device itself and your MyDyson account stay as they are.": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "DysonBar löscht den WLAN-Schlüssel und den Verlauf. Das Gerät und dein MyDyson-Konto bleiben, wie sie sind."
+          }
+        }
+      }
+    },
+    "DysonBar is an independent open-source project. It is not affiliated with, endorsed or sponsored by Dyson. Dyson is a trademark of Dyson Technology Limited.": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "DysonBar ist ein unabhängiges Open-Source-Projekt und steht in keiner Verbindung zu Dyson. Dyson ist eine Marke der Dyson Technology Limited."
+          }
+        }
+      }
+    },
+    "DysonBar is an independent project and not affiliated with Dyson.": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "DysonBar ist ein unabhängiges Projekt und gehört nicht zu Dyson."
+          }
+        }
+      }
+    },
+    "DysonBar records a value every minute. The chart fills up while the app runs.": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "DysonBar speichert jede Minute einen Wert. Das Diagramm füllt sich, solange die App läuft."
+          }
+        }
+      }
+    },
+    "DysonBar shows air quality and controls your Dyson purifier straight from the menu bar, over your own Wi-Fi.": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "DysonBar zeigt die Luftqualität und steuert deinen Dyson-Luftreiniger direkt aus der Menüleiste, über dein eigenes WLAN."
+          }
+        }
+      }
+    },
+    "DysonBar starts with your Mac and stays in the menu bar.": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "DysonBar startet mit deinem Mac und bleibt in der Menüleiste."
+          }
+        }
+      }
+    },
+    "DysonBar uses the password once to fetch the Wi-Fi key of each purifier. It doesn't store it.": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "DysonBar braucht das Passwort einmal, um den WLAN-Schlüssel jedes Luftreinigers zu holen, und speichert es nicht."
+          }
+        }
+      }
+    },
+    "DysonBar, air quality %@": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "DysonBar, Luftqualität %@"
+          }
+        }
+      }
+    },
+    "Extremely poor": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Extrem schlecht"
+          }
+        }
+      }
+    },
+    "Fair": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mäßig"
+          }
+        }
+      }
+    },
+    "Fan speed": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lüfterstufe"
+          }
+        }
+      }
+    },
+    "Fan speed follows the air quality": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Die Stufe passt sich der Luftqualität an"
+          }
+        }
+      }
+    },
+    "Fan speed, auto mode, oscillation, night mode, timer, and heating or humidifying if your model has it.": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lüfterstufe, Automatik, Schwenken, Nachtmodus, Timer und, wenn dein Modell es kann, Heizen oder Befeuchten."
+          }
+        }
+      }
+    },
+    "Fault code %@. The MyDyson app explains what to do.": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fehlercode %@. Die MyDyson-App erklärt, was zu tun ist."
+          }
+        }
+      }
+    },
+    "Filter almost used up": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Filter fast verbraucht"
+          }
+        }
+      }
+    },
+    "Find DysonBar in the menu bar, top right. Two quick choices:": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "DysonBar findest du oben rechts in der Menüleiste. Noch zwei kurze Einstellungen:"
+          }
+        }
+      }
+    },
+    "Fine particles PM2.5": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Feinstaub PM2.5"
+          }
+        }
+      }
+    },
+    "Fixed address": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Feste Adresse"
+          }
+        }
+      }
+    },
+    "Formaldehyde": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Formaldehyd"
+          }
+        }
+      }
+    },
+    "Front": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nach vorne"
+          }
+        }
+      }
+    },
+    "Full control": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alles steuern"
+          }
+        }
+      }
+    },
+    "General": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Allgemein"
+          }
+        }
+      }
+    },
+    "Get Started": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Los geht's"
+          }
+        }
+      }
+    },
+    "Good": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gut"
+          }
+        }
+      }
+    },
+    "HEPA": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "HEPA"
+          }
+        }
+      }
+    },
+    "HEPA filter": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "HEPA-Filter"
+          }
+        }
+      }
+    },
+    "Heat": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Heizen"
+          }
+        }
+      }
+    },
+    "Heat to": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Heizen auf"
+          }
+        }
+      }
+    },
+    "Heating target": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zieltemperatur"
+          }
+        }
+      }
+    },
+    "Humidify": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Befeuchten"
+          }
+        }
+      }
+    },
+    "Humidity": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Luftfeuchte"
+          }
+        }
+      }
+    },
+    "Humidity history": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Verlauf der Luftfeuchte"
+          }
+        }
+      }
+    },
+    "Icon only": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nur Symbol"
+          }
+        }
+      }
+    },
+    "Icon with colour dot": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Symbol mit Farbpunkt"
+          }
+        }
+      }
+    },
+    "If nothing arrives, check that DysonBar is allowed to send notifications.": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kommt nichts an, prüf, ob DysonBar Mitteilungen senden darf."
+          }
+        }
+      }
+    },
+    "In menu bar": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "In der Menüleiste"
+          }
+        }
+      }
+    },
+    "Is the purifier plugged in and on the same Wi-Fi as this Mac? (%@)": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ist der Luftreiniger eingesteckt und im selben WLAN wie dieser Mac? (%@)"
+          }
+        }
+      }
+    },
+    "Language": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sprache"
+          }
+        }
+      }
+    },
+    "Last checked": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zuletzt gesucht"
+          }
+        }
+      }
+    },
+    "Local": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lokal"
+          }
+        }
+      }
+    },
+    "Local, no cloud": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lokal, ohne Cloud"
+          }
+        }
+      }
+    },
+    "Made by jx-grxf · MIT License": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Von jx-grxf · MIT-Lizenz"
+          }
+        }
+      }
+    },
+    "Manage Devices…": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Geräte verwalten …"
+          }
+        }
+      }
+    },
+    "Menu Bar": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Menüleiste"
+          }
+        }
+      }
+    },
+    "Min %@ · Max %@ %@": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Min. %1$@ · Max. %2$@ %3$@"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Min %1$@ · Max %2$@ %3$@"
+          }
+        }
+      }
+    },
+    "Model": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Modell"
+          }
+        }
+      }
+    },
+    "MyDyson email": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "MyDyson-E-Mail"
+          }
+        }
+      }
+    },
+    "MyDyson password": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "MyDyson-Passwort"
+          }
+        }
+      }
+    },
+    "Name": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Name"
+          }
+        }
+      }
+    },
+    "Never": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Noch nie"
+          }
+        }
+      }
+    },
+    "Night": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nacht"
+          }
+        }
+      }
+    },
+    "Nitrogen dioxide": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stickstoffdioxid"
+          }
+        }
+      }
+    },
+    "No Devices": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Keine Geräte"
+          }
+        }
+      }
+    },
+    "No data yet": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Noch keine Daten"
+          }
+        }
+      }
+    },
+    "No purifier set up yet": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Noch kein Luftreiniger eingerichtet"
+          }
+        }
+      }
+    },
+    "No response": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Keine Antwort"
+          }
+        }
+      }
+    },
+    "Not found via Bonjour": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Per Bonjour nicht gefunden"
+          }
+        }
+      }
+    },
+    "Not reachable": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nicht erreichbar"
+          }
+        }
+      }
+    },
+    "Notifications": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mitteilungen"
+          }
+        }
+      }
+    },
+    "Notify from": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Melden ab"
+          }
+        }
+      }
+    },
+    "Off": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aus"
+          }
+        }
+      }
+    },
+    "Offline · values from %@": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Offline · Werte von %@"
+          }
+        }
+      }
+    },
+    "Offline: %@": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Offline: %@"
+          }
+        }
+      }
+    },
+    "On": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "An"
+          }
+        }
+      }
+    },
+    "Once a day. Updates are signed and installed only after you confirm.": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Einmal am Tag. Updates sind signiert und werden erst nach deiner Bestätigung installiert."
+          }
+        }
+      }
+    },
+    "Once, when a filter drops to 10 %.": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Einmal, wenn ein Filter auf 10 % fällt."
+          }
+        }
+      }
+    },
+    "Only if the device isn't found: its IP address from your router.": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nur wenn das Gerät nicht gefunden wird: seine IP-Adresse aus deinem Router."
+          }
+        }
+      }
+    },
+    "Only needed once, to fetch the Wi-Fi key of your devices.": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nur einmal nötig, um den WLAN-Schlüssel deiner Geräte zu holen."
+          }
+        }
+      }
+    },
+    "Open Notification Settings…": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mitteilungseinstellungen öffnen …"
+          }
+        }
+      }
+    },
+    "Open at login": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bei der Anmeldung öffnen"
+          }
+        }
+      }
+    },
+    "Oscillate": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Schwenken"
+          }
+        }
+      }
+    },
+    "Oscillation range": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Schwenkbereich"
+          }
+        }
+      }
+    },
+    "PM2.5, PM10, VOC, NO₂ and formaldehyde, with a 7-day history.": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "PM2.5, PM10, VOC, NO₂ und Formaldehyd, mit Verlauf über 7 Tage."
+          }
+        }
+      }
+    },
+    "Particles PM10": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Feinstaub PM10"
+          }
+        }
+      }
+    },
+    "Poor": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Schlecht"
+          }
+        }
+      }
+    },
+    "Quiet": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Leise"
+          }
+        }
+      }
+    },
+    "Quit DysonBar (⌘Q)": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "DysonBar beenden (⌘Q)"
+          }
+        }
+      }
+    },
+    "Range": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zeitraum"
+          }
+        }
+      }
+    },
+    "Reconnect": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Neu verbinden"
+          }
+        }
+      }
+    },
+    "Refresh (⌘R)": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aktualisieren (⌘R)"
+          }
+        }
+      }
+    },
+    "Release notes on GitHub": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Versionshinweise auf GitHub"
+          }
+        }
+      }
+    },
+    "Remove": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Entfernen"
+          }
+        }
+      }
+    },
+    "Remove this device?": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dieses Gerät entfernen?"
+          }
+        }
+      }
+    },
+    "Remove…": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Entfernen …"
+          }
+        }
+      }
+    },
+    "Replace the %@ filter soon": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@-Filter bald tauschen"
+          }
+        }
+      }
+    },
+    "Report a problem": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Problem melden"
+          }
+        }
+      }
+    },
+    "Restart": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Neu starten"
+          }
+        }
+      }
+    },
+    "Restart DysonBar?": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "DysonBar neu starten?"
+          }
+        }
+      }
+    },
+    "Running": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Läuft"
+          }
+        }
+      }
+    },
+    "Searching the network …": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Suche im Netzwerk …"
+          }
+        }
+      }
+    },
+    "Searching …": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Suche …"
+          }
+        }
+      }
+    },
+    "Send Code": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Code senden"
+          }
+        }
+      }
+    },
+    "Serial number": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Seriennummer"
+          }
+        }
+      }
+    },
+    "Set Address…": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Adresse eintragen …"
+          }
+        }
+      }
+    },
+    "Set Up…": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Einrichten …"
+          }
+        }
+      }
+    },
+    "Settings (⌘,)": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Einstellungen (⌘,)"
+          }
+        }
+      }
+    },
+    "Severe": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gefährlich"
+          }
+        }
+      }
+    },
+    "Show": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Anzeigen"
+          }
+        }
+      }
+    },
+    "Show in Menu Bar": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "In der Menüleiste zeigen"
+          }
+        }
+      }
+    },
+    "Shows the history": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zeigt den Verlauf"
+          }
+        }
+      }
+    },
+    "Sign In": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Anmelden"
+          }
+        }
+      }
+    },
+    "Sign in again": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Neu anmelden"
+          }
+        }
+      }
+    },
+    "Sign in to MyDyson": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bei MyDyson anmelden"
+          }
+        }
+      }
+    },
+    "Sign in with your MyDyson account once. After that DysonBar talks to the purifier directly over Wi-Fi.": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Melde dich einmal mit deinem MyDyson-Konto an. Danach spricht DysonBar direkt über das WLAN mit dem Luftreiniger."
+          }
+        }
+      }
+    },
+    "Sign in with your MyDyson account to add your purifiers.": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Melde dich mit deinem MyDyson-Konto an, um deine Luftreiniger hinzuzufügen."
+          }
+        }
+      }
+    },
+    "Signs in to MyDyson once and adds every purifier on the account.": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Meldet sich einmal bei MyDyson an und fügt alle Luftreiniger des Kontos hinzu."
+          }
+        }
+      }
+    },
+    "Sleep timer": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ausschalt-Timer"
+          }
+        }
+      }
+    },
+    "So the air quality is always in the menu bar.": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Damit die Luftqualität immer in der Menüleiste steht."
+          }
+        }
+      }
+    },
+    "Source code on GitHub": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Quellcode auf GitHub"
+          }
+        }
+      }
+    },
+    "Speed %lld": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stufe %lld"
+          }
+        }
+      }
+    },
+    "Standby": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bereit"
+          }
+        }
+      }
+    },
+    "Status": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Status"
+          }
+        }
+      }
+    },
+    "Switch device": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gerät wechseln"
+          }
+        }
+      }
+    },
+    "System": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "System"
+          }
+        }
+      }
+    },
+    "Target humidity": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zielfeuchte"
+          }
+        }
+      }
+    },
+    "Temperature": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Temperatur"
+          }
+        }
+      }
+    },
+    "Temperature history": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Temperaturverlauf"
+          }
+        }
+      }
+    },
+    "The Keychain entry for %@ is missing. Sign in once more to restore it.": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Der Schlüsselbund-Eintrag für %@ fehlt. Melde dich noch einmal an, um ihn wiederherzustellen."
+          }
+        }
+      }
+    },
+    "The code or the password is wrong.": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Code oder Passwort stimmt nicht."
+          }
+        }
+      }
+    },
+    "The colour dot follows the air quality of the selected device: green is good, red is bad.": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Der Farbpunkt zeigt die Luftqualität des gewählten Geräts: Grün ist gut, Rot ist schlecht."
+          }
+        }
+      }
+    },
+    "The device closed the connection": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Das Gerät hat die Verbindung beendet"
+          }
+        }
+      }
+    },
+    "The device rejected the credentials": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Das Gerät hat die Zugangsdaten abgelehnt"
+          }
+        }
+      }
+    },
+    "The new language takes effect after a restart.": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Die neue Sprache gilt nach einem Neustart."
+          }
+        }
+      }
+    },
+    "This Mac is offline. Signing in needs the internet once.": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dieser Mac ist offline. Für die Anmeldung braucht es einmal Internet."
+          }
+        }
+      }
+    },
+    "This account has no device that can be controlled over Wi-Fi.": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "In diesem Konto ist kein Gerät, das sich über WLAN steuern lässt."
+          }
+        }
+      }
+    },
+    "This build has no update feed. Releases from GitHub or Homebrew update themselves.": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dieser Build hat keinen Update-Feed. Versionen von GitHub oder Homebrew aktualisieren sich selbst."
+          }
+        }
+      }
+    },
+    "Time": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zeit"
+          }
+        }
+      }
+    },
+    "Timed out": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zeitüberschreitung"
+          }
+        }
+      }
+    },
+    "Timer": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Timer"
+          }
+        }
+      }
+    },
+    "Too many attempts. Wait a few minutes and try again.": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zu viele Versuche. Warte ein paar Minuten und versuch es dann noch einmal."
+          }
+        }
+      }
+    },
+    "Try Again": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Erneut versuchen"
+          }
+        }
+      }
+    },
+    "Turn off": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ausschalten"
+          }
+        }
+      }
+    },
+    "Turn off (P)": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ausschalten (P)"
+          }
+        }
+      }
+    },
+    "Turn off in": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ausschalten in"
+          }
+        }
+      }
+    },
+    "Turn on": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Einschalten"
+          }
+        }
+      }
+    },
+    "Turn on (P)": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Einschalten (P)"
+          }
+        }
+      }
+    },
+    "Updates": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Updates"
+          }
+        }
+      }
+    },
+    "Use the account from the MyDyson app. Dyson emails you a one-time code.": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nimm das Konto aus der MyDyson-App. Dyson schickt dir einen Einmal-Code per Mail."
+          }
+        }
+      }
+    },
+    "Version": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Version"
+          }
+        }
+      }
+    },
+    "Version %@": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Version %@"
+          }
+        }
+      }
+    },
+    "Very poor": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sehr schlecht"
+          }
+        }
+      }
+    },
+    "Volatile organic compounds": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Flüchtige organische Verbindungen"
+          }
+        }
+      }
+    },
+    "Waiting for data": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Warte auf Messwerte"
+          }
+        }
+      }
+    },
+    "Welcome to DysonBar": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Willkommen bei DysonBar"
+          }
+        }
+      }
+    },
+    "When the air gets bad, a filter runs out or the device reports a fault.": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wenn die Luft schlecht wird, ein Filter zu Ende geht oder das Gerät einen Fehler meldet."
+          }
+        }
+      }
+    },
+    "When the air stays at or above the chosen level for five minutes.": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wenn die Luft fünf Minuten lang auf oder über der gewählten Stufe bleibt."
+          }
+        }
+      }
+    },
+    "When the purifier reports a new fault or warning code.": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wenn der Luftreiniger einen neuen Fehler- oder Warncode meldet."
+          }
+        }
+      }
+    },
+    "Your Dyson purifier in the menu bar, over your own Wi-Fi.": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dein Dyson-Luftreiniger in der Menüleiste, über dein eigenes WLAN."
+          }
+        }
+      }
+    },
+    "Your purifier in the menu bar": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dein Luftreiniger in der Menüleiste"
+          }
+        }
+      }
+    },
+    "index": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Index"
+          }
+        }
+      }
+    },
+    "name@example.com": {
+      "shouldTranslate": false
+    },
+    "–": {
+      "shouldTranslate": false
+    },
+    "“System” follows the language in System Settings. Changing it restarts DysonBar.": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "„System“ folgt der Sprache aus den Systemeinstellungen. Eine Änderung startet DysonBar neu."
+          }
+        }
+      }
+    }
+  },
+  "version": "1.0"
+}

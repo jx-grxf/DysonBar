@@ -1,0 +1,118 @@
+{
+  "groups": [
+    {
+      "layers": [
+        {
+          "image-name": "knob.svg",
+          "name": "knob",
+          "opacity": 1,
+          "blend-mode": "normal",
+          "glass": true,
+          "position": {
+            "scale": 0.92,
+            "translation-in-points": [
+              0,
+              34
+            ]
+          }
+        }
+      ],
+      "name": "knob",
+      "shadow": {
+        "kind": "neutral",
+        "opacity": 0.5
+      },
+      "specular": true
+    },
+    {
+      "layers": [
+        {
+          "image-name": "air.svg",
+          "name": "air",
+          "opacity": 0.92,
+          "blend-mode": "normal",
+          "glass": true,
+          "position": {
+            "scale": 0.92,
+            "translation-in-points": [
+              0,
+              34
+            ]
+          }
+        }
+      ],
+      "name": "air",
+      "specular": true,
+      "shadow": {
+        "kind": "neutral",
+        "opacity": 0.3
+      }
+    },
+    {
+      "layers": [
+        {
+          "image-name": "foreground.svg",
+          "name": "glyph",
+          "glass": true,
+          "position": {
+            "scale": 0.92,
+            "translation-in-points": [
+              0,
+              34
+            ]
+          }
+        }
+      ],
+      "name": "Ring",
+      "specular": true,
+      "shadow": {
+        "kind": "layer-color",
+        "opacity": 0.5
+      },
+      "blur-material": null
+    }
+  ],
+  "supported-platforms": {
+    "squares": "shared",
+    "circles": [
+      "watchOS"
+    ]
+  },
+  "fill": {
+    "linear-gradient": [
+      "srgb:0.03922,0.05490,0.07451,1.00000",
+      "srgb:0.11765,0.15686,0.20000,1.00000"
+    ],
+    "orientation": {
+      "start": {
+        "x": 0.5,
+        "y": 1
+      },
+      "stop": {
+        "x": 0.5,
+        "y": 0
+      }
+    }
+  },
+  "fill-specializations": [
+    {
+      "appearance": "dark",
+      "value": {
+        "linear-gradient": [
+          "srgb:0.02745,0.03529,0.04706,1.00000",
+          "srgb:0.08627,0.11373,0.14510,1.00000"
+        ],
+        "orientation": {
+          "start": {
+            "x": 0.5,
+            "y": 1
+          },
+          "stop": {
+            "x": 0.5,
+            "y": 0
+          }
+        }
+      }
+    }
+  ]
+}

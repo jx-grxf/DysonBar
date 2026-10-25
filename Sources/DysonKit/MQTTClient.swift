@@ -4,17 +4,22 @@ import Network
 /// Just enough MQTT 3.1.1 for a Dyson: connect with username/password,
 /// subscribe, publish, keepalive. The device broker never sends retained
 /// messages or QoS 2, so neither is handled.
-final class MQTTClient: @unchecked Sendable {
-  enum Event {
+public final class MQTTClient: @unchecked Sendable {
+  public enum Event: Sendable {
     /// Carries the resolved IP so the next launch can skip discovery.
     case connected(remoteHost: String?)
     case message(topic: String, payload: Data)
     case disconnected(String)
   }
 
+  /// A ping goes out after this much silence; a second silent interval means
+  /// the socket is dead. TCP alone would take minutes to notice a Wi-Fi switch.
+  static let keepaliveInterval: TimeInterval = 15
+
   private let endpoint: NWEndpoint
   private let username: String
   private let password: String
+  private let onEvent: @Sendable (Event) -> Void
   private let queue = DispatchQueue(label: "DysonBar.mqtt")
   private var connection: NWConnection?
   private var buffer = Data()
@@ -23,16 +28,20 @@ final class MQTTClient: @unchecked Sendable {
   private var handshakeTimeout: DispatchWorkItem?
   private var pendingSubscriptions: [String] = []
   private var isOpen = false
+  private var heardSinceLastTick = true
+  private var pingOutstanding = false
 
-  var onEvent: (@Sendable (Event) -> Void)?
-
-  init(endpoint: NWEndpoint, username: String, password: String) {
+  public init(
+    endpoint: NWEndpoint, username: String, password: String,
+    onEvent: @escaping @Sendable (Event) -> Void
+  ) {
     self.endpoint = endpoint
     self.username = username
     self.password = password
+    self.onEvent = onEvent
   }
 
-  func start(subscribing topics: [String]) {
+  public func start(subscribing topics: [String]) {
     queue.async { [self] in
       pendingSubscriptions = topics
       let connection = NWConnection(to: endpoint, using: .tcp)
@@ -43,9 +52,7 @@ final class MQTTClient: @unchecked Sendable {
         case .ready:
           self.send(self.connectPacket())
           self.receive()
-        case .failed(let error):
-          self.close(reason: error.localizedDescription)
-        case .waiting(let error):
+        case .failed(let error), .waiting(let error):
           self.close(reason: error.localizedDescription)
         default:
           break
@@ -57,21 +64,33 @@ final class MQTTClient: @unchecked Sendable {
       // the wrong interface), so a missing CONNACK counts as a failure.
       let timeout = DispatchWorkItem { [weak self] in
         guard let self, !self.isOpen else { return }
-        self.close(reason: "Zeitüberschreitung")
+        self.close(reason: String(localized: "Timed out"))
       }
       handshakeTimeout = timeout
       queue.asyncAfter(deadline: .now() + 6, execute: timeout)
     }
   }
 
-  func stop() {
+  public func stop() {
     queue.async { [self] in
-      if isOpen { send(Data([0xE0, 0x00])) }
-      close(reason: "stopped", notify: false)
+      guard let connection else { return }
+      if isOpen {
+        // Cancel only after DISCONNECT left the socket, or the broker keeps
+        // the session until its own keepalive runs out. Strong captures keep the
+        // client alive after its owner has already let go of it.
+        connection.send(content: Data([0xE0, 0x00]), completion: .contentProcessed { [self] _ in
+          close(reason: "stopped", notify: false)
+        })
+        queue.asyncAfter(deadline: .now() + 1) { [self] in
+          close(reason: "stopped", notify: false)
+        }
+      } else {
+        close(reason: "stopped", notify: false)
+      }
     }
   }
 
-  func publish(topic: String, payload: Data) {
+  public func publish(topic: String, payload: Data) {
     queue.async { [self] in
       guard isOpen else { return }
       var body = Self.encode(string: topic)
@@ -93,7 +112,7 @@ final class MQTTClient: @unchecked Sendable {
     connection = nil
     buffer.removeAll()
     isOpen = false
-    if notify { onEvent?(.disconnected(reason)) }
+    if notify { onEvent(.disconnected(reason)) }
   }
 
   private func send(_ data: Data) {
@@ -106,23 +125,25 @@ final class MQTTClient: @unchecked Sendable {
     connection?.receive(minimumIncompleteLength: 1, maximumLength: 64 * 1024) { [weak self] data, _, isComplete, error in
       guard let self else { return }
       if let data, !data.isEmpty {
+        self.heardSinceLastTick = true
         self.buffer.append(data)
         self.drainBuffer()
       }
       if let error {
         self.close(reason: error.localizedDescription)
       } else if isComplete {
-        self.close(reason: "Gerät hat die Verbindung beendet")
-      } else {
+        self.close(reason: String(localized: "The device closed the connection"))
+      } else if self.connection != nil {
         self.receive()
       }
     }
   }
 
   private func drainBuffer() {
-    while let (header, body, consumed) = Self.nextPacket(in: buffer) {
-      buffer.removeFirst(consumed)
-      handle(header: header, body: body)
+    while let packet = Self.nextPacket(in: buffer) {
+      buffer.removeFirst(packet.consumed)
+      handle(header: packet.header, body: packet.body)
+      if connection == nil { return }
     }
   }
 
@@ -131,29 +152,28 @@ final class MQTTClient: @unchecked Sendable {
     case 2:  // CONNACK
       let code = body.count >= 2 ? body[body.startIndex + 1] : 0xFF
       guard code == 0 else {
-        close(reason: code == 4 || code == 5 ? "Zugangsdaten abgelehnt" : "CONNACK \(code)")
+        close(
+          reason: code == 4 || code == 5
+            ? String(localized: "The device rejected the credentials")
+            : "CONNACK \(code)"
+        )
         return
       }
       isOpen = true
       handshakeTimeout?.cancel()
       startKeepalive()
       subscribe(pendingSubscriptions)
-      onEvent?(.connected(remoteHost: remoteHost()))
+      onEvent(.connected(remoteHost: remoteHost()))
     case 3:  // PUBLISH
-      let qos = (header >> 1) & 0x03
-      guard body.count >= 2 else { return }
-      let topicLength = Int(body[body.startIndex]) << 8 | Int(body[body.startIndex + 1])
-      var offset = body.startIndex + 2 + topicLength
-      guard offset <= body.endIndex else { return }
-      let topic = String(decoding: body[(body.startIndex + 2)..<offset], as: UTF8.self)
-      if qos > 0 {
-        let id = body[offset..<min(offset + 2, body.endIndex)]
+      guard let message = Self.parsePublish(header: header, body: body) else { return }
+      if let id = message.packetID {
         send(Data([0x40, 0x02]) + id)
-        offset += 2
       }
-      onEvent?(.message(topic: topic, payload: Data(body[min(offset, body.endIndex)...])))
+      onEvent(.message(topic: message.topic, payload: message.payload))
+    case 13:  // PINGRESP
+      pingOutstanding = false
     default:
-      break  // SUBACK, PUBACK, PINGRESP
+      break  // SUBACK, PUBACK
     }
   }
 
@@ -178,11 +198,23 @@ final class MQTTClient: @unchecked Sendable {
   }
 
   private func startKeepalive() {
+    heardSinceLastTick = true
+    pingOutstanding = false
     let timer = DispatchSource.makeTimerSource(queue: queue)
-    timer.schedule(deadline: .now() + 30, repeating: 30)
-    timer.setEventHandler { [weak self] in self?.send(Data([0xC0, 0x00])) }
+    timer.schedule(deadline: .now() + Self.keepaliveInterval, repeating: Self.keepaliveInterval)
+    timer.setEventHandler { [weak self] in self?.keepaliveTick() }
     timer.resume()
     keepaliveTimer = timer
+  }
+
+  private func keepaliveTick() {
+    if pingOutstanding && !heardSinceLastTick {
+      close(reason: String(localized: "No response"))
+      return
+    }
+    heardSinceLastTick = false
+    pingOutstanding = true
+    send(Data([0xC0, 0x00]))
   }
 
   private func connectPacket() -> Data {
@@ -201,12 +233,12 @@ final class MQTTClient: @unchecked Sendable {
     return nextPacketID
   }
 
-  private static func encode(string: String) -> Data {
+  static func encode(string: String) -> Data {
     let bytes = Data(string.utf8)
     return Data(UInt16(bytes.count).bigEndianBytes) + bytes
   }
 
-  private static func packet(type: UInt8, body: Data) -> Data {
+  static func packet(type: UInt8, body: Data) -> Data {
     var data = Data([type])
     var length = body.count
     repeat {
@@ -218,7 +250,13 @@ final class MQTTClient: @unchecked Sendable {
     return data + body
   }
 
-  private static func nextPacket(in buffer: Data) -> (UInt8, Data, Int)? {
+  struct Packet {
+    let header: UInt8
+    let body: Data
+    let consumed: Int
+  }
+
+  static func nextPacket(in buffer: Data) -> Packet? {
     guard buffer.count >= 2 else { return nil }
     let start = buffer.startIndex
     var multiplier = 1
@@ -234,10 +272,33 @@ final class MQTTClient: @unchecked Sendable {
     }
     let end = index + length
     guard end <= buffer.endIndex else { return nil }
-    return (buffer[start], Data(buffer[index..<end]), end - start)
+    return Packet(header: buffer[start], body: Data(buffer[index..<end]), consumed: end - start)
+  }
+
+  struct Publish {
+    let topic: String
+    let packetID: Data?
+    let payload: Data
+  }
+
+  static func parsePublish(header: UInt8, body: Data) -> Publish? {
+    let qos = (header >> 1) & 0x03
+    guard body.count >= 2 else { return nil }
+    let start = body.startIndex
+    let topicLength = Int(body[start]) << 8 | Int(body[start + 1])
+    var offset = start + 2 + topicLength
+    guard offset <= body.endIndex else { return nil }
+    let topic = String(decoding: body[(start + 2)..<offset], as: UTF8.self)
+    var id: Data?
+    if qos > 0 {
+      guard offset + 2 <= body.endIndex else { return nil }
+      id = Data(body[offset..<offset + 2])
+      offset += 2
+    }
+    return Publish(topic: topic, packetID: id, payload: Data(body[offset...]))
   }
 }
 
-private extension UInt16 {
+extension UInt16 {
   var bigEndianBytes: [UInt8] { [UInt8(self >> 8), UInt8(self & 0xFF)] }
 }
