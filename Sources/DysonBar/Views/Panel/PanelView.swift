@@ -43,9 +43,12 @@ final class PanelWindow {
       pendingHeight = contentHeight
       return
     }
+    // Window frames snap to whole points; fractional heights mid-animation
+    // would otherwise resize the window again on every layout pass.
+    let height = contentHeight.rounded(.up)
     let content = window.contentRect(forFrameRect: window.frame)
-    guard abs(content.height - contentHeight) > 0.5 else { return }
-    var frame = window.frameRect(forContentRect: NSRect(x: content.minX, y: content.minY, width: content.width, height: contentHeight))
+    guard abs(content.height - height) >= 1 else { return }
+    var frame = window.frameRect(forContentRect: NSRect(x: content.minX, y: content.minY, width: content.width, height: height))
     frame.origin.y = window.frame.maxY - frame.height
     window.setFrame(frame, display: true, animate: false)
   }
