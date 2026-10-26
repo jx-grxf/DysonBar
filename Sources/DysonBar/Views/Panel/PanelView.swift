@@ -51,6 +51,8 @@ final class PanelWindow {
     var frame = window.frameRect(forContentRect: NSRect(x: content.minX, y: content.minY, width: content.width, height: height))
     frame.origin.y = window.frame.maxY - frame.height
     window.setFrame(frame, display: true, animate: false)
+    // The shadow of a borderless, transparent window keeps the old outline.
+    window.invalidateShadow()
   }
 
   fileprivate func attach(_ window: NSWindow) {
@@ -198,18 +200,30 @@ private struct StatusLine: View {
   let device: DysonDevice
 
   var body: some View {
-    TimelineView(.periodic(from: .now, by: 30)) { context in
-      let (symbol, text, tint) = describe(now: context.date)
-      HStack(spacing: 5) {
-        if let symbol {
-          Image(systemName: symbol).foregroundStyle(tint)
-        }
-        Text(text).lineLimit(1)
+    if device.connection == .localNetworkDenied {
+      // The panel still shows the last values, so the way out has to be right here.
+      Button(action: WindowPresenter.showLocalNetworkPrivacy) {
+        line("network.slash", String(localized: "No local network access · Open Settings"), Tokens.level(.poor))
       }
-      .font(.caption)
-      .foregroundStyle(.secondary)
-      .contentTransition(.interpolate)
+      .buttonStyle(.plain)
+    } else {
+      TimelineView(.periodic(from: .now, by: 30)) { context in
+        let (symbol, text, tint) = describe(now: context.date)
+        line(symbol, text, tint)
+      }
     }
+  }
+
+  private func line(_ symbol: String?, _ text: String, _ tint: Color) -> some View {
+    HStack(spacing: 5) {
+      if let symbol {
+        Image(systemName: symbol).foregroundStyle(tint)
+      }
+      Text(text).lineLimit(1)
+    }
+    .font(.caption)
+    .foregroundStyle(.secondary)
+    .contentTransition(.interpolate)
   }
 
   private func describe(now: Date) -> (String?, String, Color) {
@@ -235,6 +249,8 @@ private struct StatusLine: View {
         return ("wifi.exclamationmark", String(localized: "Offline · values from \(age)"), Tokens.level(.poor))
       }
       return ("wifi.exclamationmark", String(localized: "Not reachable"), Tokens.level(.poor))
+    case .localNetworkDenied:
+      return ("network.slash", String(localized: "No local network access"), Tokens.level(.poor))
     }
   }
 }
@@ -266,6 +282,22 @@ private struct ConnectionPlaceholder: View {
         HStack {
           Button("Try Again") { device.reconnect() }
           Button("Set Address…") { WindowPresenter.showSettings(tab: .devices) }
+        }
+        .controlSize(.small)
+      case .localNetworkDenied:
+        Image(systemName: "network.slash")
+          .font(.system(size: 26))
+          .foregroundStyle(.secondary)
+        Text("No local network access")
+          .font(.headline)
+        Text("macOS is blocking DysonBar from the purifier. Turn on DysonBar under Privacy & Security → Local Network. If it's already on, quit DysonBar and open it again.")
+          .font(.caption)
+          .foregroundStyle(.secondary)
+          .multilineTextAlignment(.center)
+          .fixedSize(horizontal: false, vertical: true)
+        HStack {
+          Button("Open Settings", action: WindowPresenter.showLocalNetworkPrivacy)
+          Button("Try Again") { device.reconnect() }
         }
         .controlSize(.small)
       }

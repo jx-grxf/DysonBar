@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.1
+
+- If macOS blocks DysonBar from the local network, the panel now says so and opens the right page in System Settings, instead of showing "Connecting …" forever.
+- Closing a history chart no longer leaves the old window outline behind the panel.
+
 ## 0.1.0
 
 First public release.

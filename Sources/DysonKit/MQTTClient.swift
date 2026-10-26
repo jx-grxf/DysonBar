@@ -10,6 +10,9 @@ public final class MQTTClient: @unchecked Sendable {
     case connected(remoteHost: String?)
     case message(topic: String, payload: Data)
     case disconnected(String)
+    /// macOS blocks the app from the local network: the switch under Privacy &
+    /// Security is off, or it belongs to an older build of the same app.
+    case localNetworkDenied
   }
 
   /// A ping goes out after this much silence; a second silent interval means
@@ -69,7 +72,14 @@ public final class MQTTClient: @unchecked Sendable {
       // the wrong interface), so a missing CONNACK counts as a failure.
       let timeout = DispatchWorkItem { [weak self] in
         guard let self, !self.isOpen else { return }
-        self.close(reason: String(localized: "Timed out"))
+        // Checked only here: while the permission prompt is still open the path
+        // reports the same reason, and NWConnection recovers once it's allowed.
+        if self.connection?.currentPath?.unsatisfiedReason == .localNetworkDenied {
+          self.close(reason: "local network denied", notify: false)
+          self.onEvent(.localNetworkDenied)
+        } else {
+          self.close(reason: String(localized: "Timed out"))
+        }
       }
       handshakeTimeout = timeout
       queue.asyncAfter(deadline: .now() + 6, execute: timeout)
