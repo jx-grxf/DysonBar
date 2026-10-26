@@ -311,6 +311,7 @@ private struct DeviceSection: View {
     case .connecting: String(localized: "Connecting …")
     case .searching: String(localized: "Searching …")
     case .offline(let reason): String(localized: "Offline: \(reason)")
+    case .localNetworkDenied: String(localized: "No local network access")
     }
   }
 

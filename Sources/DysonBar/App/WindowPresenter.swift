@@ -43,6 +43,10 @@ enum WindowPresenter {
   private static var settings: HostingWindowController?
   private static var onboarding: HostingWindowController?
 
+  static func showLocalNetworkPrivacy() {
+    NSWorkspace.shared.open(URL(string: "x-apple.systempreferences:com.apple.settings.PrivacySecurity.extension?Privacy_LocalNetwork")!)
+  }
+
   static func showSettings(tab: SettingsTab? = nil) {
     if let tab { SettingsNavigation.shared.selectedTab = tab }
     if settings == nil {

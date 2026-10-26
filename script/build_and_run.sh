@@ -6,7 +6,7 @@ set -euo pipefail
 MODE="${1:-run}"
 APP_NAME="DysonBar"
 BUNDLE_ID="at.johannesgrof.DysonBar"
-VERSION="${DYSONBAR_VERSION:-0.1.0}"
+VERSION="${DYSONBAR_VERSION:-0.1.1}"
 MIN_SYSTEM_VERSION="15.0"
 SPARKLE_FEED_URL="https://github.com/jx-grxf/DysonBar/releases/latest/download/appcast.xml"
 # The private half lives in the login Keychain under the account "dysonbar"

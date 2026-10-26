@@ -1120,6 +1120,26 @@
         }
       }
     },
+    "No local network access": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kein Zugriff aufs lokale Netzwerk"
+          }
+        }
+      }
+    },
+    "No local network access · Open Settings": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kein Zugriff aufs lokale Netzwerk · Einstellungen öffnen"
+          }
+        }
+      }
+    },
     "No purifier set up yet": {
       "localizations": {
         "de": {
@@ -1266,6 +1286,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Mitteilungseinstellungen öffnen …"
+          }
+        }
+      }
+    },
+    "Open Settings": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Einstellungen öffnen"
           }
         }
       }
@@ -2086,6 +2116,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Index"
+          }
+        }
+      }
+    },
+    "macOS is blocking DysonBar from the purifier. Turn on DysonBar under Privacy & Security → Local Network. If it's already on, quit DysonBar and open it again.": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "macOS lässt DysonBar nicht zum Luftreiniger. Schalte DysonBar unter Datenschutz & Sicherheit → Lokales Netzwerk ein. Ist es schon an, beende DysonBar und öffne die App neu."
           }
         }
       }

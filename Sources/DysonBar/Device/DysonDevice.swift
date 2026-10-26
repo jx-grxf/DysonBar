@@ -12,6 +12,7 @@ final class DysonDevice: Identifiable {
     case connecting(String)
     case connected(String)
     case offline(String)
+    case localNetworkDenied
 
     var isConnected: Bool {
       if case .connected = self { return true }
@@ -40,6 +41,7 @@ final class DysonDevice: Identifiable {
   @ObservationIgnored private var retryTask: Task<Void, Never>?
   @ObservationIgnored private var pollTask: Task<Void, Never>?
   @ObservationIgnored private var pendingRoutes: [Route] = []
+  @ObservationIgnored private var localNetworkDenied = false
   @ObservationIgnored private var isStopped = true
   @ObservationIgnored private let log = Logger(subsystem: "at.johannesgrof.DysonBar", category: "connection")
 
@@ -102,6 +104,7 @@ final class DysonDevice: Identifiable {
 
   private func connect() {
     teardown()
+    localNetworkDenied = false
     pendingRoutes = routes()
     tryNextRoute(lastError: nil)
   }
@@ -109,7 +112,8 @@ final class DysonDevice: Identifiable {
   private func tryNextRoute(lastError: String?) {
     guard !pendingRoutes.isEmpty else {
       log.info("all routes failed: \(lastError ?? "-", privacy: .public)")
-      connection = .offline(lastError ?? String(localized: "No response"))
+      // Bonjour fails last with its own error, so the denial has to outlive the pass.
+      connection = localNetworkDenied ? .localNetworkDenied : .offline(lastError ?? String(localized: "No response"))
       scheduleRetry()
       return
     }
@@ -210,6 +214,11 @@ final class DysonDevice: Identifiable {
         if history.samples.count != before { historyRevision += 1 }
       }
       if change != .none { onUpdate?(self, change) }
+    case .localNetworkDenied:
+      log.info("local network denied (\(label, privacy: .public))")
+      client = nil
+      localNetworkDenied = true
+      tryNextRoute(lastError: nil)
     case .disconnected(let reason):
       log.info("disconnected (\(label, privacy: .public)): \(reason, privacy: .public)")
       let wasConnected = connection.isConnected
